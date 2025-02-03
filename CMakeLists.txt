@@ -1,4 +1,4 @@
-option(BUILD_ETHERNET_INTERFACE "Build ethernet interface support" OFF)
+option(BUILD_ETHERNET_INTERFACE "Build ethernet interface support" ON)
 option(BUILD_WLAN_INTERFACE "Build wlan interface support" ON)
 
 set(COMPONENT_SRC "")
@@ -13,7 +13,7 @@ endif()
 
 idf_component_register(SRCS ${COMPONENT_SRC}
                        INCLUDE_DIRS "network_interfaces"
-                       REQUIRES nvs_flash esp_wifi esp_eth lwip)
+                       REQUIRES nvs_flash esp_wifi esp_eth lwip esp_driver_gpio)
 
 if(CMAKE_GENERATOR STREQUAL "Unix Makefiles")
 set(submake "make")
